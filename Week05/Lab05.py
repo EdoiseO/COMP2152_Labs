@@ -29,14 +29,16 @@ def fib(n):
         int: The nth Fibonacci number
     """
     # TODO: Base case 1 - If n equals 0, return 0
-
+    if n == 0: 
+        return 0
 
     # TODO: Base case 2 - If n equals 1, return 1
-
+    if n == 1: 
+        return 1
 
     # TODO: Recursive case - Return fib(n-1) + fib(n-2)
     pass  # Remove this line when you add your code
-
+    return fib(n - 1) + fib(n - 2)
 
 # Test cases for Fibonacci
 print("Fibonacci Sequence (F(0) to F(10)):")
@@ -76,6 +78,16 @@ def fizz_buzz(n):
         list: List of strings following FizzBuzz rules
     """
     result = []
+    for i in range(1, n+1):
+        if i % 3 == 0 and i % 5 == 0: 
+            result.append("FizzBuzz")
+        elif i % 3 == 0:
+            result.append("Fizz")
+        elif i % 5 == 0: 
+            result.append("Buzz")
+        else:
+            result.append(str(i))
+        return result
 
     # TODO: Loop from 1 to n (inclusive)
     # Hint: Use range(1, n + 1)
@@ -150,8 +162,17 @@ def binary_search_iterative(nums, target):
 
 
     # TODO: Return -1 if target not found
+    left = 0 
+    right = len(nums) - 1
+    while left <= right:
+        mid = (left + right)//2
+        if nums[mid] == target:
+            return mid
+        elif target < nums[mid]:
+            right = mid - 1
+        else: 
+            left = mid + 1
     return -1
-
 
 # Part B: Recursive Solution
 def binary_search_recursive(nums, target, left, right):
@@ -167,6 +188,16 @@ def binary_search_recursive(nums, target, left, right):
     Returns:
         int: Index of target, or -1 if not found
     """
+
+    if left > right:
+        return -1 
+    mid = (left + right) // 2
+    if nums[mid] == target:
+        return mid
+    if target < nums[mid]:
+        return binary_search_recursive(nums, target, left, mid - 1)
+    return binary_search_recursive(nums, target, mid + 1, right)
+
     # TODO: Base case - If left > right, return -1 (target not found)
 
 
