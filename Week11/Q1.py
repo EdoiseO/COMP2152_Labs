@@ -2,12 +2,6 @@
 #  WEEK 11 LAB — Q1: PORT SCANNER CLASS
 #  COMP2152 — Phillip Onofua
 # ============================================================
-#
-#  You already know how to scan ports from Assignment 2.
-#  Now you'll wrap that same logic inside a CLASS.
-#  The scanning code doesn't change — just the organization.
-#
-# ============================================================
 
 import socket
 
